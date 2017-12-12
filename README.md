@@ -9,7 +9,7 @@ The first law of geography states that “everything is related to everything el
 
 # Parts
 
-**I. Concepts
+*I. Concepts*
 
 The first part of the course deals with the concepts involved in spatial analysis. We will spend some time getting to know “W”, the connectivity matrix which defines spatial dependencies (Neumayer and Plümper 2016). Alternative conceptions of neighborhood and the weighting of connections are discussed. For example, spatial proximity does not necessarily imply geographic proximity, as for instance trade or information exchange can bring distance things closely together. Further concepts handled include the geo-referencing of data, regarding both its use and generation.
 
