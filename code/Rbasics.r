@@ -1,4 +1,6 @@
-###
+###Spatial Analysis of Geographic Data###
+
+
 
 
 #About R -> Bern... 
@@ -9,4 +11,5 @@
 
 #tibbles 
 
-#RStudio 
+
+#Why R-Studio 
