@@ -1,6 +1,7 @@
 # geospat
 Material for the Course "Spatial Data Analysis" (CDSS, Mannheim, Spring 2018)
 
+Course program: https://github.com/julianbernauer/geospat/blob/master/Spatial%20Analysis%20of%20Geographic%20Data%20Course%20Program.pdf
 
 # Course Content
 
