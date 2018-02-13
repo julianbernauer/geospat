@@ -13,7 +13,7 @@
 #A few maps 
 #Generating W
 #Quick spatial correlation and regression
-#Exercise: solutions will be posted as file "SAGB_1b"
+#Exercise: File "SAGB_1b"
 
 setwd("U:/Forschung MZES/Geography of Conflict/btw17_geometrie_wahlkreise_vg250_geo_shp")
 
@@ -186,6 +186,19 @@ nb
 nbw <- nb2listw(nb, zero.policy=TRUE)
 nbw
 
+#default: row-standardized, usually wrong according to Neumayer and Plümper 2016
+#raw
+nbw_raw <- nb2listw(nb, zero.policy=TRUE,style="B")
+nbw_raw
+
+#minmax
+nbw_mima <- nb2listw(nb, zero.policy=TRUE,style="minmax")
+nbw_mima
+
+#compare -> see "weights" 
+View(nbw)
+View(nbw_raw)
+
 #Count of the number of neighbors per district 
 num <- card(nb)
 summary(num)
@@ -225,9 +238,15 @@ summary(spaterr_spdep)
 
 
 #From the spdep package: autoregressive lag model, attacks from the surrounding areas affect attack levels 
-spatlag1_spdep <- lagsarlm(att~afd,,nbw,type="lag")
-summary(spatlag1_spdep)
+spatlag1a_spdep <- lagsarlm(att~afd,,nbw,type="lag")
+summary(spatlag1a_spdep)
 #rho: attacks are more likely in areas where attacks occur 
+
+
+#With raw W
+spatlag1b_spdep <- lagsarlm(att~afd,,nbw_raw,type="lag")
+summary(spatlag1b_spdep)
+#affects rho 
 
 
 #Durbin model: adding spatially lagged independent variables 
@@ -248,7 +267,7 @@ summary(spatlag2_spdep)
 #3) Copy job: integrate attack and voting data and create W
 #4) Plot the spatial correlation for the party chosen
 #5) If you got this far, play around with the spatial regression models: 
-#   add your party's vote share as a control variable in spatial lag, error or Durbin models...  
+#   add your party's vote share as a control variable in spatial lag, error or Durbin models... 
 
 ##############the end#########################################
   
