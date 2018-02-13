@@ -245,8 +245,10 @@ summary(spatlag2_spdep)
 #   - make life easier by defining a variable containing the party's votre share in the districts 
 #   - to choose a color palette: display.brewer.all()
 #2) Add the data on attacks on refugee shelters to the map 
-#3) Plot the spatial correlation for the party chosen
-#4) If you got this far, play around with the spatial regression models: add your party's vote share as a control variable in spatial lag, error or Durbin models...  
+#3) Copy job: integrate attack and voting data and create W
+#4) Plot the spatial correlation for the party chosen
+#5) If you got this far, play around with the spatial regression models: 
+#   add your party's vote share as a control variable in spatial lag, error or Durbin models...  
 
 ##############the end#########################################
   
