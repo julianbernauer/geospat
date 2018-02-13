@@ -239,6 +239,7 @@ summary(spatlag2_spdep)
 ###
 #Exercise working with the Bundestag election data: 
 ###
+#0) Starting from an empty workspace, load all packages and the data 
 #1) Choose a party other than the AfD and make a chloropleth map of its vote share with a suiting color 
 #   Hints: 
 #   - make life easier by defining a variable containing the party's votre share in the districts 
