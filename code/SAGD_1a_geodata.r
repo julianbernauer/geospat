@@ -13,7 +13,7 @@
 #A few maps 
 #Generating W
 #Quick spatial correlation and regression
-#Exercise: File "SAGB_1b"
+#Exercise: solutions will be posted as file "SAGB_1b"
 
 setwd("U:/Forschung MZES/Geography of Conflict/btw17_geometrie_wahlkreise_vg250_geo_shp")
 
@@ -80,11 +80,11 @@ summary(distr_btw17)
 colors <- brewer.pal(9, "Blues") 
 
 #creating 9 shades using the classInt package 
-brks<-classIntervals(distr_btw17$afd_zweit17/distr_btw17$gültige_zweit17, n=9, style="quantile")
+brks<-classIntervals(distr_btw17$afd_zweit17/distr_btw17$gÃ¼ltige_zweit17, n=9, style="quantile")
 brks<- brks$brks 
 
 #AfD results plot with shades of blue
-plot(distr_btw17, col=colors[findInterval(distr_btw17$afd_zweit17/distr_btw17$gültige_zweit17, brks,all.inside=TRUE)], axes=F)
+plot(distr_btw17, col=colors[findInterval(distr_btw17$afd_zweit17/distr_btw17$gÃ¼ltige_zweit17, brks,all.inside=TRUE)], axes=F)
 
 
 ###
@@ -104,7 +104,7 @@ plot(attacks)
 #combine plots to show coincidence of attacks and AfD vote share 
 #beware of different points in time/periods covered: attacks before vote! 
 #replot AfD vote
-plot(distr_btw17, col=colors[findInterval(distr_btw17$afd_zweit17/distr_btw17$gültige_zweit17, brks,all.inside=TRUE)], axes=F)
+plot(distr_btw17, col=colors[findInterval(distr_btw17$afd_zweit17/distr_btw17$gÃ¼ltige_zweit17, brks,all.inside=TRUE)], axes=F)
 plot(attacks, add=TRUE)
 
 
@@ -127,7 +127,7 @@ afd_att[1:10,]
 #Attacks per district 
 attack_count <- as.numeric(table(afd_att))
 attack_count
-#158 Sächsische Schweiz: 112 attacks
+#158 SÃ¤chsische Schweiz: 112 attacks
 
 #Not all districts covered, 17 without attacks 
 length(attack_count)
@@ -157,12 +157,12 @@ plot(attacks, add=TRUE)
 
 
 #a few variable for further analysis  
-afd <- distr_btw17$afd_zweit17/distr_btw17$gültige_zweit17
+afd <- distr_btw17$afd_zweit17/distr_btw17$gÃ¼ltige_zweit17
 att <- distr_btw17$attacks
 wkr <- att_data$attack_wkr
 idl <- btw17$land_id
 postcom <- btw17$postcom
-npd <- distr_btw17$npd_zweit17/distr_btw17$gültige_zweit17
+npd <- distr_btw17$npd_zweit17/distr_btw17$gÃ¼ltige_zweit17
 npd[is.na(npd)] <- 0
 
 
@@ -235,6 +235,14 @@ spatlag2_spdep <- lagsarlm(att~afd,,nbw,type="mixed")
 summary(spatlag2_spdep)
 #spatial lag of AfD vote has no systematic positive coefficent 
 
+
+###
+#Exercise working with the Bundestag election data: 
+###
+#1) Choose a party other than the AfD and make a chloropleth map of its vote share with a suiting color 
+#2) Add the data on attacks on refugee shelters to the map 
+#3) Plot the spatial correlation for the party chosen
+#4) If you got this far, play around with the spatial regression models: add your party's vote share as a control variable in spatial lag, error or Durbin models...  
 
 ##############the end#########################################
   
